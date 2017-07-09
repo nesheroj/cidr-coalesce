@@ -44,8 +44,8 @@ jobs:
       <<: *default-steps
 workflows:
   version: 2
-  jobs:
-    - build-and-test:
+  test:
+    jobs:
       - build-node4
       - build-node6
       - build-node7
