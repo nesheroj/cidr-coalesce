@@ -1,4 +1,4 @@
-# cidr-coalesce
+# cidr-coalesce [![CircleCI](https://circleci.com/gh/nesukun/cidr-coalesce.svg?style=svg)](https://circleci.com/gh/nesukun/cidr-coalesce)
 
 Get the minimum set of CIDR that covers every and only the input addresses or ranges.
 
