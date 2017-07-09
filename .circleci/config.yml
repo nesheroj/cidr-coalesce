@@ -24,29 +24,29 @@ jobs:
       - store_artifacts:
           path: coverage
           prefix: coverage
-  build-node4:
-    working_directory: ~/cidr-coalesce
-    docker:
-      - image: circleci/node:4
-    steps:
-      <<: *default-steps
-  build-node6:
-    working_directory: ~/cidr-coalesce
-    docker:
-      - image: circleci/node:6
-    steps:
-      <<: *default-steps
-  build-node7:
-    working_directory: ~/cidr-coalesce
-    docker:
-      - image: circleci/node:7
-    steps:
-      <<: *default-steps
+  # build-node4:
+  #   working_directory: ~/cidr-coalesce
+  #   docker:
+  #     - image: circleci/node:4
+  #   steps:
+  #     <<: *default-steps
+  # build-node6:
+  #   working_directory: ~/cidr-coalesce
+  #   docker:
+  #     - image: circleci/node:6
+  #   steps:
+  #     <<: *default-steps
+  # build-node7:
+  #   working_directory: ~/cidr-coalesce
+  #   docker:
+  #     - image: circleci/node:7
+  #   steps:
+  #     <<: *default-steps
 workflows:
   version: 2
   test:
     jobs:
       - build
-      - build-node4
-      - build-node6
-      - build-node7
+      # - build-node4
+      # - build-node6
+      # - build-node7
