@@ -1,0 +1,87 @@
+{
+  "name": "cidr-coalesce",
+  "version": "1.0.0",
+  "description": "Calculate the minimum required set of CIDRs to fully cover a set of address ranges and addresses",
+  "main": "lib/index.js",
+  "bin": "lib/cli.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "circle": "npm run testci && npm run lint && (npm-check --skip-unused; exit 0;)",
+    "lint": "prettier --print-width 120 --trailing-comma all --single-quote true --list-different \"./+(src|test)/**/*.js\" && xo",
+    "precommit": "lint-staged",
+    "prepublish": "npm run build",
+    "prettify": "xo --fix && prettier --print-width 120 --trailing-comma all --single-quote true --write \"./+(src|test)/**/*.js\"",
+    "start": "node lib/cli",
+    "tdd": "nodemon --exec \"npm test && npm run lint\"",
+    "test": "jest --forceExit",
+    "testci": "jest --coverage --forceExit"
+  },
+  "author": "Nestor Hernandez Ojeda",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "commander": "^2.11.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.1.0",
+    "babel-jest": "^20.0.3",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-stage-1": "^6.22.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-jest": "^20.0.3",
+    "husky": "^0.14.2",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.1",
+    "nodemon": "^1.11.0",
+    "prettier": "^1.5.2",
+    "xo": "^0.18.1"
+  },
+  "lint-staged": {
+    "*.js": ["prettier --print-width 120 --trailing-comma all --single-quote true --list-different", "xo"]
+  },
+  "xo": {
+    "envs": ["node", "jest/globals"],
+    "esnext": true,
+    "extends": ["prettier"],
+    "ignores": ["static/**"],
+    "parser": "babel-eslint",
+    "plugins": ["babel", "jest"],
+    "space": 2,
+    "rules": {
+      "babel/new-cap": [2],
+      "import/no-unassigned-import": [0],
+      "import/prefer-default-export": [0],
+      "capitalized-comments": [0],
+      "max-params": [0],
+      "new-cap": [0],
+      "no-implicit-coercion": [
+        2,
+        {
+          "boolean": false
+        }
+      ],
+      "no-negated-condition": [0],
+      "no-unused-expressions": [
+        2,
+        {
+          "allowShortCircuit": true,
+          "allowTaggedTemplates": true,
+          "allowTernary": true
+        }
+      ],
+      "no-unused-vars": [
+        2,
+        {
+          "vars": "all",
+          "args": "none",
+          "ignoreRestSiblings": true
+        }
+      ],
+      "no-void": [0],
+      "radix": [2, "as-needed"]
+    }
+  }
+}

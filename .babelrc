@@ -1,0 +1,15 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": 4
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "stage-1"
+  ],
+  "sourceMaps": true
+}
