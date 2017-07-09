@@ -1,35 +1,52 @@
+default-steps: &default-steps
+  steps:
+    - checkout
+    - run:
+        name: update-npm
+        command: 'sudo npm install -g npm@latest'
+    - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+    - run:
+        name: install-npm-dependencies
+        command: npm install
+    - save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+          - ./node_modules
+    - run:
+        name: test
+        command: npm run circle
+    - store_artifacts:
+        path: coverage
+        prefix: coverage
+
 version: 2
 jobs:
-  -build:
+  build-node4:
+    <<: *default-steps
+    working_directory: ~/cidr-coalesce
+    docker:
+      - image: circleci/node:4
+  build-node6:
+    <<: *default-steps
+    working_directory: ~/cidr-coalesce
+    docker:
+      - image: circleci/node:6
+  build-node7:
+    <<: *default-steps
+    working_directory: ~/cidr-coalesce
+    docker:
+      - image: circleci/node:7
+  build:
+    <<: *default-steps
     working_directory: ~/cidr-coalesce
     docker:
       - image: circleci/node
-    steps:
-      - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-dependencies
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: test
-          command: npm run circle
-      - store_artifacts:
-          path: coverage
-          prefix: coverage
 workflows:
-  build-and-test:
-    # -test-node4
-    # -test-node6
-    # -test-node7
-    -build:
-      # filters:
-      #   branches:
-      #     only: master
+  version: 2
+  jobs:
+    build-and-test:
+      - build-node4
+      - build-node6
+      - build-node7
+      - build
