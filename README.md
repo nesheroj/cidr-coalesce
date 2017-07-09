@@ -19,7 +19,7 @@ $ cidr-coalesce 192.168.1.0-192.168.1.40
 
 ### API
 ```js
-import coalsece from 'cidr-coalesce';
+import coalesce from 'cidr-coalesce';
 
 const result = coalesce(['192.168.1.0', '192.168.1.40']);
 // result = ['192.168.1.0/27', '192.168.1.32/29', '192.168.1.40/32']
