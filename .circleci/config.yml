@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  -test-node:
+  -build:
     working_directory: ~/cidr-coalesce
     docker:
       - image: circleci/node
@@ -29,7 +29,7 @@ workflows:
     # -test-node4
     # -test-node6
     # -test-node7
-    -test-node:
+    -build:
       # filters:
       #   branches:
       #     only: master
