@@ -21,7 +21,7 @@ $ cidr-coalesce 192.168.1.0-192.168.1.40
 ```js
 import coalesce from 'cidr-coalesce';
 
-const result = coalesce(['192.168.1.0', '192.168.1.40']);
+const result = coalesce(['192.168.1.0-192.168.1.40']);
 // result = ['192.168.1.0/27', '192.168.1.32/29', '192.168.1.40/32']
 ```
 

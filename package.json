@@ -1,7 +1,11 @@
 {
   "name": "cidr-coalesce",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Calculate the minimum required set of CIDRs to fully cover a set of address ranges and addresses",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nesukun/cidr-coalesce.git"
+  },
   "main": "lib/index.js",
   "bin": "lib/cli.js",
   "scripts": {
@@ -38,6 +42,9 @@
     "nodemon": "^1.11.0",
     "prettier": "^1.5.2",
     "xo": "^0.18.1"
+  },
+  "jest": {
+    "testMatch": ["**/*.test.js"]
   },
   "lint-staged": {
     "*.js": ["prettier --print-width 120 --trailing-comma all --single-quote true --list-different", "xo"]
