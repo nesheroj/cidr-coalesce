@@ -1,5 +1,7 @@
 # cidr-coalesce [![CircleCI](https://circleci.com/gh/nesukun/cidr-coalesce.svg?style=svg)](https://circleci.com/gh/nesukun/cidr-coalesce)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nesukun/cidr-coalesce.svg)](https://greenkeeper.io/)
+
 Get the minimum set of CIDR that covers every and only the input addresses or ranges.
 
 Accepts IPv4 addresses in the following formats
