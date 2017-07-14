@@ -9,3 +9,4 @@ test/
 coverage
 jest.config.js
 nodemon.json
+**/*.test.js

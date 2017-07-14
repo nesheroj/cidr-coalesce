@@ -30,3 +30,7 @@ const result = coalesce(['192.168.1.0-192.168.1.40']);
 ### quiet
 
 Suppreses all error output.
+
+## Inspiration
+
+- https://github.com/alaska/cidr-convert

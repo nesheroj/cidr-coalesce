@@ -1,11 +1,16 @@
 export default [
   {
-    description: 'Single IP',
+    description: 'Single IPv4',
     inputs: ['192.168.1.1'],
     expectations: ['192.168.1.1/32'],
   },
   {
-    description: 'IP range',
+    description: 'Single IPv6',
+    inputs: ['1234:5678:90ab:cdef:1234:5678:90ab:cdef'],
+    expectations: ['192.168.1.1/32'],
+  },
+  {
+    description: 'IPv4 range',
     inputs: ['192.168.1.1-192.168.1.100'],
     expectations: [
       '192.168.1.1/32',
@@ -20,7 +25,7 @@ export default [
     ],
   },
   {
-    description: 'CIDR',
+    description: 'IPv4 CIDR',
     inputs: ['192.168.1.1/30'],
     expectations: ['192.168.1.0/30'],
   },

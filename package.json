@@ -44,7 +44,8 @@
     "xo": "^0.18.1"
   },
   "jest": {
-    "testMatch": ["**/*.test.js"]
+    "testMatch": ["**/*.test.js"],
+    "testPathIgnorePatterns": ["/node_modules/", "/lib/"]
   },
   "lint-staged": {
     "*.js": ["prettier --print-width 120 --trailing-comma all --single-quote true --list-different", "xo"]
