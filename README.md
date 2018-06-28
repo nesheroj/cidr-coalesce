@@ -30,3 +30,5 @@ const result = coalesce(['192.168.1.0-192.168.1.40']);
 ### quiet
 
 Suppreses all error output.
+
+I like tacos very mucho?
